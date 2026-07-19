@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Suhaila Mohieldin — Curriculum Vitae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F9FA;
+    --surface:#FFFFFF;
+    --ink:#17232C;
+    --ink-soft:#4C5C66;
+    --line:#DDE4E7;
+    --teal:#0E6B62;
+    --teal-deep:#0A4F49;
+    --brass:#B8892B;
+    --tag-bg:#EEF3F2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:var(--teal-deep);}
+
+  /* ECG signature line */
+  .pulse{
+    width:100%;
+    height:26px;
+    display:block;
+  }
+  .pulse path{
+    fill:none;
+    stroke:var(--teal);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  /* Layout */
+  .shell{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  nav.side{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    overflow-y:auto;
+    padding:32px 20px 32px 0;
+    border-right:1px solid var(--line);
+  }
+  nav.side .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    margin-bottom:4px;
+  }
+  nav.side .brand-sub{
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  nav.side ul{list-style:none; margin:0; padding:0;}
+  nav.side li{margin-bottom:2px;}
+  nav.side a.navlink{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:13px;
+    font-weight:500;
+    padding:8px 10px;
+    border-radius:6px;
+    transition:background .15s, color .15s;
+  }
+  nav.side a.navlink:hover{background:var(--tag-bg); color:var(--teal-deep);}
+  nav.side .navlink .mk{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--teal);
+    font-size:12px;
+    width:16px;
+  }
+  nav.side .contact{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  nav.side .contact div{margin-bottom:6px; word-break:break-word;}
+
+  main{padding:44px 28px 80px 40px;}
+
+  /* Hero */
+  .hero{margin-bottom:8px;}
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:10px;
+  }
+  .hero h1{font-size:38px; font-weight:700;}
+  .hero .role{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin-top:8px;
+    font-weight:500;
+  }
+  .hero .summary{
+    max-width:760px;
+    margin-top:18px;
+    font-size:15px;
+    color:var(--ink-soft);
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:28px 0 8px;
+  }
+  .stat{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+  }
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:26px;
+    font-weight:600;
+    color:var(--teal-deep);
+  }
+  .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+
+  section{
+    padding-top:46px;
+    margin-top:10px;
+    border-top:1px solid var(--line);
+    scroll-margin-top:20px;
+  }
+  section:first-of-type{border-top:none;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .sec-head .mk{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--teal);
+    font-size:13px;
+  }
+  .sec-head h2{font-size:22px; font-weight:700;}
+
+  /* skills */
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .skill-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+  }
+  .skill-card h3{font-size:14px; color:var(--teal-deep); font-weight:600; margin-bottom:10px;}
+  .skill-card ul{list-style:none; margin:0; padding:0;}
+  .skill-card li{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding:4px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .skill-card li:last-child{border-bottom:none;}
+
+  /* timeline */
+  .tl-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:none;}
+  .tl-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--teal);
+    padding-top:2px;
+  }
+  .tl-body h3{font-size:16px; font-weight:600;}
+  .tl-body .org{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:3px;
+  }
+  .tags{margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;}
+  .tag{
+    font-size:10.5px;
+    font-family:'IBM Plex Mono', monospace;
+    background:var(--tag-bg);
+    color:var(--teal-deep);
+    padding:2px 8px;
+    border-radius:999px;
+  }
+  .tl-body ul{margin:10px 0 0; padding-left:18px;}
+  .tl-body li{font-size:13.5px; color:var(--ink-soft); margin-bottom:5px;}
+
+  /* course grid */
+  .course-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .course-chip{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:12px 14px;
+  }
+  .course-chip .cname{font-size:13px; font-weight:600;}
+  .course-chip .ctag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--teal);
+    margin-top:4px;
+    display:block;
+  }
+
+  /* course list (professional courses delivered) */
+  .plist{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  .prow{
+    display:grid;
+    grid-template-columns:1fr 140px 90px;
+    gap:12px;
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+    font-size:13.5px;
+  }
+  .prow:nth-child(odd){background:var(--surface);}
+  .prow .pname{font-weight:500;}
+  .prow .ploc{color:var(--ink-soft); font-size:12.5px;}
+  .prow .pyear{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--teal-deep);
+    font-size:12px;
+    text-align:right;
+  }
+  .prow.new .pname::after{
+    content:"NEW";
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    color:var(--brass);
+    border:1px solid var(--brass);
+    border-radius:999px;
+    padding:1px 6px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* consulting / cards */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .info-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+  }
+  .info-card .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--teal);
+  }
+  .info-card h3{font-size:15px; margin-top:6px; font-weight:600;}
+  .info-card p{font-size:13px; color:var(--ink-soft); margin-top:8px;}
+
+  /* certificates */
+  .cert-row{
+    display:grid;
+    grid-template-columns:1fr 200px 90px;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .cert-row .cname{font-size:14px; font-weight:600;}
+  .cert-row .cissuer{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+  .cert-row .cdate{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal-deep); text-align:right;}
+  .cert-row .verify a{font-size:11.5px; text-decoration:none; color:var(--teal-deep); font-family:'IBM Plex Mono', monospace;}
+
+  /* education */
+  .edu-item{
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item h3{font-size:15px; font-weight:600;}
+  .edu-item .org{font-size:13px; color:var(--ink-soft); margin-top:2px;}
+  .edu-item .yr{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal); margin-top:2px;}
+
+  footer{
+    text-align:center;
+    padding:40px 20px;
+    font-size:12px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    margin-top:40px;
+  }
+
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;}
+    nav.side{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding:24px 20px;}
+    main{padding:32px 20px 60px;}
+    .skill-grid, .card-grid{grid-template-columns:1fr;}
+    .course-grid{grid-template-columns:1fr 1fr;}
+    .stat-row{grid-template-columns:1fr 1fr;}
+    .tl-item{grid-template-columns:1fr;}
+    .prow{grid-template-columns:1fr; gap:2px;}
+    .prow .pyear{text-align:left;}
+    .cert-row{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="side">
+    <div class="brand">Dr. Suhaila Mohieldin</div>
+    <div class="brand-sub">Biomedical Engineer · PhD</div>
+    <ul>
+      <li><a class="navlink" href="#profile"><span class="mk">01</span> Profile</a></li>
+      <li><a class="navlink" href="#skills"><span class="mk">02</span> Skills</a></li>
+      <li><a class="navlink" href="#experience"><span class="mk">03</span> Experience</a></li>
+      <li><a class="navlink" href="#teaching"><span class="mk">04</span> Teaching</a></li>
+      <li><a class="navlink" href="#training"><span class="mk">05</span> Training</a></li>
+      <li><a class="navlink" href="#consulting"><span class="mk">06</span> Consulting</a></li>
+      <li><a class="navlink" href="#publications"><span class="mk">07</span> Publications</a></li>
+      <li><a class="navlink" href="#certificates"><span class="mk">08</span> Certificates</a></li>
+      <li><a class="navlink" href="#volunteering"><span class="mk">09</span> Volunteering</a></li>
+      <li><a class="navlink" href="#education"><span class="mk">10</span> Education</a></li>
+    </ul>
+    <div class="contact">
+      <div>📍 Sharjah, UAE</div>
+      <div>📧 soso22083@yahoo.com</div>
+      <div>📱 +971 56 594 1355</div>
+      <div><a href="https://linkedin.com/in/suhaila-mohieldin">linkedin.com/in/suhaila-mohieldin</a></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero" id="profile">
+      <div class="eyebrow">Curriculum Vitae</div>
+      <h1>Dr. Suhaila Mohieldin</h1>
+      <div class="role">PhD · Biomedical Engineer · AI Applications · Trainer</div>
+
+      <svg class="pulse" viewBox="0 0 700 26" preserveAspectRatio="none">
+        <path d="M0,13 L120,13 L140,4 L160,22 L180,13 L260,13 L280,2 L300,24 L320,13 L700,13"/>
+      </svg>
+
+      <p class="summary">Biomedical and Electronic Engineering professional with over 20 years of multidisciplinary experience spanning clinical engineering, medical systems, AI across applications (engineering, management, and education), academic leadership, and professional training. PhD-qualified with deep expertise in medical imaging, ICU systems, biomedical equipment management, data analytics, and digital health transformation. Proven record in teaching, research supervision, consultancy, feasibility studies, and training across the UAE and Sudan.</p>
+
+      <div class="stat-row">
+        <div class="stat"><div class="num">20+</div><div class="lbl">Years Experience</div></div>
+        <div class="stat"><div class="num">30+</div><div class="lbl">Student Projects Supervised</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Academic Degrees</div></div>
+        <div class="stat"><div class="num">40+</div><div class="lbl">Professional Courses Delivered</div></div>
+      </div>
+    </div>
+
+    <section id="skills">
+      <div class="sec-head"><span class="mk">02</span><h2>Skills</h2></div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Clinical Engineering</h3>
+          <ul>
+            <li>ICU & Life Support Systems</li>
+            <li>Medical Imaging (CT, MRI, X-ray, Ultrasound)</li>
+            <li>Hemodialysis Systems</li>
+            <li>Biomedical Equipment Installation & Calibration</li>
+            <li>Preventive Maintenance & Troubleshooting</li>
+            <li>PACS / RIS Integration</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>AI & Data Science</h3>
+          <ul>
+            <li>TensorFlow · PyTorch · Scikit-learn</li>
+            <li>Power BI · Excel</li>
+            <li>Python · MATLAB · R · C/C++</li>
+            <li>Azure</li>
+            <li>Big Data Analytics</li>
+            <li>Signal Processing & IoMT</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Standards & Compliance</h3>
+          <ul>
+            <li>ISO 13485 · ISO 14971 · IEC</li>
+            <li>ISO 15189 · ISO 9000 · EN46001</li>
+            <li>IEC 601-1-4 Medical Device Standards</li>
+            <li>Hospital Planning & Feasibility Studies</li>
+            <li>Risk Management & Governance</li>
+            <li>Quality Assurance</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Academic & Training</h3>
+          <ul>
+            <li>Training of Trainers (TOT) – 50 hrs</li>
+            <li>Curriculum Design (Diploma / BSc / MSc)</li>
+            <li>Academic Advising & Mentorship</li>
+            <li>Research Supervision (30+ projects)</li>
+            <li>Change Management & Innovation</li>
+            <li>Digital Transformation Leadership</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head"><span class="mk">03</span><h2>Experience</h2></div>
+
+      <div class="tl-item">
+        <div class="tl-date">2023 – Present</div>
+        <div class="tl-body">
+          <h3>Assistant Professor – Biomedical Engineering</h3>
+          <div class="org">University of Gezira, Sudan</div>
+          <div class="tags"><span class="tag">Academic</span></div>
+          <ul>
+            <li>Teach undergraduate and postgraduate biomedical engineering and medical systems</li>
+            <li>Supervise 30+ student graduation projects and research in healthcare technology</li>
+            <li>Develop and update curricula at Diploma, BSc, and MSc levels aligned with international academic and industry standards</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2005 – Present</div>
+        <div class="tl-body">
+          <h3>Biomedical Engineer – Clinical Engineering & Consultant</h3>
+          <div class="org">UAE & Sudan</div>
+          <div class="tags"><span class="tag">Clinical</span><span class="tag">Consulting</span></div>
+          <ul>
+            <li>Managed full lifecycle of biomedical equipment: procurement, installation, calibration, maintenance, and decommissioning</li>
+            <li>Installed and maintained ICU systems — patient monitors, ventilators, infusion pumps, defibrillators — ensuring continuous life-support operation and patient safety compliance</li>
+            <li>Deployed and supported medical imaging systems (Ultrasound, X-ray, CT, MRI) with PACS/RIS integration and quality assurance</li>
+            <li>Managed hemodialysis systems and laboratory equipment (haematology, biochemistry) with ISO 15189 compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2018 – Present</div>
+        <div class="tl-body">
+          <h3>Consultant Biomedical Engineer & Medical Equipment Sales Engineer</h3>
+          <div class="org">UAE & Sudan</div>
+          <div class="tags"><span class="tag">Consulting</span><span class="tag">Sales</span></div>
+          <ul>
+            <li>Prepared technical proposals, tender documents, BOQs, and equipment specifications for healthcare facilities</li>
+            <li>Delivered product demonstrations and client consultations across UAE and Sudan</li>
+            <li>Conducted risk assessments, feasibility studies, and hospital planning projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2023 – Present</div>
+        <div class="tl-body">
+          <h3>Head, Organizations Dept / External Relations & International Cooperation</h3>
+          <div class="org">University of Gezira, Sudan</div>
+          <div class="tags"><span class="tag">Leadership</span></div>
+          <ul>
+            <li>Led the directorate for international academic partnerships, cooperation agreements, and external institutional relations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2014 – 2017</div>
+        <div class="tl-body">
+          <h3>Head, Electronics Engineering Department</h3>
+          <div class="org">University of Gezira, Sudan</div>
+          <div class="tags"><span class="tag">Leadership</span><span class="tag">Academic</span></div>
+          <ul>
+            <li>Led four specialisations: Biomedical, Control, Telecommunication, and Electronic Engineering</li>
+            <li>Supervised academic programs, teaching performance, departmental outputs, and laboratory operations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2010 – 2023</div>
+        <div class="tl-body">
+          <h3>Lecturer – Biomedical & Electronics Engineering</h3>
+          <div class="org">University of Gezira, Sudan</div>
+          <div class="tags"><span class="tag">Academic</span></div>
+          <ul>
+            <li>Delivered technical lectures and labs across four engineering specialisations</li>
+            <li>Developed and updated curricula at Technical Diploma, Bachelor's, and Master's levels</li>
+            <li>Examination & Registration Coordinator (2017–2019) and Academic Advisor (2010–Present)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2023 – Present</div>
+        <div class="tl-body">
+          <h3>Adjunct Assistant Professor & External Examiner</h3>
+          <div class="org">Al Mashreq University, Khartoum</div>
+          <div class="tags"><span class="tag">Academic</span></div>
+          <ul>
+            <li>Teaching, external examination, and academic quality assessment duties</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2018 – Present</div>
+        <div class="tl-body">
+          <h3>Trainer & Program Designer</h3>
+          <div class="org">UAE, Saudi Arabia & Sudan</div>
+          <div class="tags"><span class="tag">Training</span></div>
+          <ul>
+            <li>Designed and delivered 40+ professional training programmes across government, healthcare, and engineering sectors</li>
+            <li>Clients include Dept. of Health Abu Dhabi, Dubai Ambulance Services, Tahakom Saudi Arabia, Ajman Dept. of Finance, Al Ain Municipality, and Sharjah Commerce & Tourism Development Authority</li>
+            <li>Recognised with formal Certificates of Appreciation from Dept. of Health Abu Dhabi and Ajman Dept. of Finance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="sec-head"><span class="mk">04</span><h2>Teaching</h2></div>
+      <p class="summary" style="margin-top:0;">Courses designed and delivered at the University of Gezira – Faculty of Engineering & Technology (2006–Present) at Technical Diploma, BSc, and MSc levels across Biomedical, Electronics, Control, and Telecommunications Engineering specialisations.</p>
+
+      <h3 style="font-size:14px; margin:24px 0 12px; color:var(--teal-deep);">Courses Designed & Taught</h3>
+      <div class="course-grid">
+        <div class="course-chip"><div class="cname">Biomedical Instrumentation</div><span class="ctag">Biomedical · BSc</span></div>
+        <div class="course-chip"><div class="cname">Medical Imaging Systems</div><span class="ctag">Biomedical · BSc/MSc</span></div>
+        <div class="course-chip"><div class="cname">Anatomy & Physiology for Engineers</div><span class="ctag">Biomedical · BSc</span></div>
+        <div class="course-chip"><div class="cname">Modelling of Physiological Systems</div><span class="ctag">Biomedical · MSc</span></div>
+        <div class="course-chip"><div class="cname">Artificial Organs</div><span class="ctag">Biomedical · MSc</span></div>
+        <div class="course-chip"><div class="cname">Telemedicine & IoMT</div><span class="ctag">Biomedical · BSc/MSc</span></div>
+        <div class="course-chip"><div class="cname">FPGA in Medical Instrumentation</div><span class="ctag">Biomedical · BSc</span></div>
+        <div class="course-chip"><div class="cname">Medical Device Management</div><span class="ctag">Biomedical · BSc/MSc</span></div>
+        <div class="course-chip"><div class="cname">AI in Biomedical Engineering</div><span class="ctag">AI/Data · MSc</span></div>
+        <div class="course-chip"><div class="cname">Bioinformatics – Practical Applications</div><span class="ctag">AI/Data · MSc</span></div>
+        <div class="course-chip"><div class="cname">Data Science in Biomedical Engineering</div><span class="ctag">AI/Data · MSc</span></div>
+        <div class="course-chip"><div class="cname">Introduction to Python for Engineering</div><span class="ctag">AI/Data · BSc</span></div>
+        <div class="course-chip"><div class="cname">IoT for Medical Instruments</div><span class="ctag">AI/Data · BSc</span></div>
+        <div class="course-chip"><div class="cname">Embedded Systems & IoT (Arduino, ESP32)</div><span class="ctag">AI/Data · BSc</span></div>
+        <div class="course-chip"><div class="cname">Signal Processing & Communications</div><span class="ctag">Electronics · BSc</span></div>
+        <div class="course-chip"><div class="cname">Control Engineering Fundamentals</div><span class="ctag">Electronics · BSc</span></div>
+        <div class="course-chip"><div class="cname">Electronic Circuits & Systems</div><span class="ctag">Electronics · BSc</span></div>
+        <div class="course-chip"><div class="cname">Classic Control Systems</div><span class="ctag">Electronics · BSc</span></div>
+        <div class="course-chip"><div class="cname">Electrical Power Systems</div><span class="ctag">Electronics · BSc</span></div>
+        <div class="course-chip"><div class="cname">Medical Ethics for Engineers</div><span class="ctag">Professional · BSc/MSc</span></div>
+        <div class="course-chip"><div class="cname">Quality Assurance & Medical Standards</div><span class="ctag">Professional · MSc</span></div>
+      </div>
+
+      <h3 style="font-size:14px; margin:28px 0 12px; color:var(--teal-deep);">Curriculum Development</h3>
+      <div class="skill-card" style="max-width:760px;">
+        <ul>
+          <li>Developed & updated Technical Diploma curricula: Electronics, Biomedical, Control, Telecommunications</li>
+          <li>Developed & updated BSc curricula: Electronics, Biomedical, Control, Telecommunications</li>
+          <li>Developed & updated MSc curricula: Electronics, Biomedical, Control, Telecommunications, Applied Physics</li>
+          <li>Member – Curriculum Development Committee, Faculty of Engineering, University of Gezira</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="training">
+      <div class="sec-head"><span class="mk">05</span><h2>Training</h2></div>
+      <p class="summary" style="margin-top:0;">Professional Courses Delivered (37)</p>
+
+      <div class="plist">
+        <div class="prow new"><div class="pname">Stakeholder Engagement & Management Certification</div><div class="ploc">Dubai</div><div class="pyear">2026</div></div>
+        <div class="prow new"><div class="pname">Radio Frequency (RF) Systems</div><div class="ploc">Abu Dhabi</div><div class="pyear">2026</div></div>
+        <div class="prow new"><div class="pname">Digital Archiving Advanced Techniques</div><div class="ploc">Dubai</div><div class="pyear">2026</div></div>
+        <div class="prow new"><div class="pname">Advanced Microsoft Office for Leaders</div><div class="ploc">Sharjah</div><div class="pyear">2026</div></div>
+        <div class="prow"><div class="pname">Digital Transformation & Adoption of Future Technologies</div><div class="ploc">Dubai</div><div class="pyear">2026</div></div>
+        <div class="prow"><div class="pname">Certified Analytics Professional (CAP) Preparation</div><div class="ploc">Ajman</div><div class="pyear">2026</div></div>
+        <div class="prow"><div class="pname">Disaster Behavioral Health and Crisis Intervention</div><div class="ploc">Abu Dhabi</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">R&D Methodologies for System Innovation</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Technology Scouting & Horizon Scanning</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Deployment & Tuning of Local AI Models for Enterprise Chatbots</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Ionizing Radiation Awareness</div><div class="ploc">Saudi Arabia</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Medical Engineering Management in Crisis & Conflict Situations (NCBME 2025)</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Advanced Data Analysis & Dashboard Reporting (Excel)</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Advanced Power BI</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Data Science & Machine Learning for Program Innovation</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Health Tourism Management</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Image Analysis & Machine Learning</div><div class="ploc">Sharjah</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Internal Audit Guide for Government Entities</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Investment Management & Private Sector Partnership in Healthcare</div><div class="ploc">Dubai</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Big Data & AI for Medical Devices</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Medical Device Management</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Telemedicine Equipment & Remote Monitoring Systems</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Medical Ethics for Engineers</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Quality Assurance & ISO Standards (ISO 13485, 14971, 17025)</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Medical Device Quality – EN46001, IEC 601-1-4</div><div class="ploc">Sudan</div><div class="pyear">2025</div></div>
+        <div class="prow"><div class="pname">Maintenance Planning, Scheduling & Control</div><div class="ploc">Dubai</div><div class="pyear">2024</div></div>
+        <div class="prow"><div class="pname">Azure Big Data Analytics</div><div class="ploc">Dubai</div><div class="pyear">2024</div></div>
+        <div class="prow"><div class="pname">Big Data Analytics with Python</div><div class="ploc">Dubai</div><div class="pyear">2024</div></div>
+        <div class="prow"><div class="pname">Python for Engineering & Robotics</div><div class="ploc">UAE / Sudan</div><div class="pyear">2022–2024</div></div>
+        <div class="prow"><div class="pname">Embedded Systems & IoT Programming (Arduino, ESP32)</div><div class="ploc">Sudan</div><div class="pyear">2023</div></div>
+        <div class="prow"><div class="pname">AI Governance, Ethics & Compliance for Engineering</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">IoT / AI Advanced</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">Applications in Robotics – Simulation & Sensors</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">Electrical Power & Safety in Healthcare Engineering Systems</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">Applied Power Systems Engineering for Multidisciplinary Engineers</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">Environmental Health & Safety for Technical Staff</div><div class="ploc">Sudan</div><div class="pyear">2022</div></div>
+        <div class="prow"><div class="pname">Time Management & Prioritization for Engineers</div><div class="ploc">Sudan</div><div class="pyear">2021</div></div>
+      </div>
+    </section>
+
+    <section id="consulting">
+      <div class="sec-head"><span class="mk">06</span><h2>Consulting</h2></div>
+      <p class="summary" style="margin-top:0;">Selected consulting, feasibility, and engineering advisory engagements in the UAE and Sudan (2005–Present).</p>
+      <div class="card-grid" style="margin-top:20px;">
+        <div class="info-card">
+          <div class="kicker">Consulting</div>
+          <h3>Hospital Planning & Feasibility Studies</h3>
+          <p>Developed technical feasibility studies and equipment planning reports for healthcare facility development — including department-level equipment lists, cost estimates, infrastructure requirements, and compliance with international health facility standards.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Procurement</div>
+          <h3>Medical Equipment Tender Documentation & BOQ</h3>
+          <p>Prepared comprehensive technical specifications, bills of quantities (BOQ), tender documents, and evaluation criteria for biomedical equipment procurement across multiple healthcare clients in UAE and Sudan.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Risk & Compliance</div>
+          <h3>Risk Assessment & Equipment Lifecycle Management</h3>
+          <p>Conducted formal risk assessments aligned with ISO 14971 for medical devices; provided lifecycle management advisory covering procurement through decommissioning for hospital clients.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Clinical Engineering</div>
+          <h3>ICU & Critical Care System Integration</h3>
+          <p>Led end-to-end installation, commissioning, and integration of ICU systems including patient monitoring networks, ventilator management, and infusion pump fleets for hospital clients.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Imaging</div>
+          <h3>Medical Imaging System Deployment & Validation</h3>
+          <p>Managed deployment and validation of radiology systems (X-ray, CT, MRI, Ultrasound) with PACS/RIS integration; conducted quality assurance programs and image quality audits.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Clinical Engineering</div>
+          <h3>Hemodialysis Unit Setup & Commissioning</h3>
+          <p>Oversaw installation and commissioning of dialysis unit equipment including water treatment systems, dialysis machines, and fluid management monitoring for renal care departments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="sec-head"><span class="mk">07</span><h2>Publications</h2></div>
+
+      <h3 style="font-size:14px; margin:0 0 12px; color:var(--teal-deep);">Peer-Reviewed Papers</h3>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="kicker">Research Article · 2025</div>
+          <h3>Impact of War on Healthcare Technology</h3>
+          <p>Examines the systematic destruction of medical infrastructure and loss of biomedical equipment during armed conflict, with implications for post-conflict healthcare recovery.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Review Article · 2020</div>
+          <h3>State of the Art in Medical Ultrasound Imaging</h3>
+          <p>Comprehensive review of ultrasound beamforming, image enhancement, and emerging AI-assisted ultrasound technologies and clinical applications.</p>
+        </div>
+        <div class="info-card">
+          <div class="kicker">Research Paper · 2016</div>
+          <h3>Mammogram Analysis for Early Breast Cancer Detection</h3>
+          <p>Applied image processing and machine learning techniques for automated early-stage breast cancer detection from mammographic data.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:14px; margin:28px 0 12px; color:var(--teal-deep);">Online Courses & Educational Content Published</h3>
+      <div class="course-grid">
+        <div class="course-chip"><div class="cname">Bioinformatics Practical Examples</div><span class="ctag">IEEE Student Chapter – UofG · 2021</span></div>
+        <div class="course-chip"><div class="cname">Data Science in Biomedical Engineering</div><span class="ctag">Rwaq (رواق) · 2021</span></div>
+        <div class="course-chip"><div class="cname">Artificial Organs</div><span class="ctag">Rwaq (رواق) · 2020</span></div>
+        <div class="course-chip"><div class="cname">Anatomy & Physiology for Biomedical Engineering</div><span class="ctag">Innovation Platform · 2022</span></div>
+        <div class="course-chip"><div class="cname">FPGA in Medical Instrumentation</div><span class="ctag">Innovation Platform · 2022</span></div>
+        <div class="course-chip"><div class="cname">IoT for Medical Instruments</div><span class="ctag">Online Course · 2022</span></div>
+        <div class="course-chip"><div class="cname">Modelling of Physiological Systems</div><span class="ctag">Online Course · 2022</span></div>
+        <div class="course-chip"><div class="cname">Telemedicine</div><span class="ctag">Bright Minds · 2022</span></div>
+        <div class="course-chip"><div class="cname">Introduction to Python for Engineering</div><span class="ctag">Online Course · 2023</span></div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="sec-head"><span class="mk">08</span><h2>Certificates</h2></div>
+
+      <h3 style="font-size:14px; margin:0 0 8px; color:var(--teal-deep);">Verified Certificates & Professional Development Attended</h3>
+      <div class="plist" style="border-top:1px solid var(--line);">
+        <div class="cert-row"><div><div class="cname">Google Stakeholder Management Specialization</div><div class="cissuer">Google / Coursera</div></div><div class="cdate">2026</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Advanced Digital Transformation Specialization</div><div class="cissuer">Coursera</div></div><div class="cdate">2026</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Google Data Analytics Professional Certificate (9 courses)</div><div class="cissuer">Google / Coursera</div></div><div class="cdate">Feb 2026</div><div class="verify"><a href="https://coursera.org/verify/professional-cert/BI3H1SQS1DSU">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">Generative AI and LLMs: Architecture and Data Preparation</div><div class="cissuer">IBM / Coursera</div></div><div class="cdate">Sep 2025</div><div class="verify"><a href="https://coursera.org/verify/IA8UE9J1BIT3">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">Advanced Microsoft Power BI</div><div class="cissuer">Edureka / Coursera</div></div><div class="cdate">Sep 2025</div><div class="verify"><a href="https://coursera.org/verify/ID834JLRMI4G">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">IT & Cloud Audit Masterclass – Fundamentals to Advanced</div><div class="cissuer">Packt / Coursera</div></div><div class="cdate">Jun 2025</div><div class="verify"><a href="https://coursera.org/verify/YM91Q233KFD3">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">AI-Powered Learning & Research Program</div><div class="cissuer">MB Academy USA</div></div><div class="cdate">May 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Data Analysis – Power BI & AI Tools</div><div class="cissuer">MB Academy USA</div></div><div class="cdate">May 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Project Management: The Basics for Success</div><div class="cissuer">UC Irvine / Coursera</div></div><div class="cdate">Mar 2025</div><div class="verify"><a href="https://coursera.org/verify/SBJ0UWLAS5F1">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">AGYA Academic Inspiration & Mentoring Programme (AIM) for Sudanese Researchers</div><div class="cissuer">Arab-German Young Academy / German Federal Ministry of Education – Berlin</div></div><div class="cdate">Jul 2024</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Azure: Create a Virtual Machine and Deploy a Web Server</div><div class="cissuer">Coursera Project</div></div><div class="cdate">Sep 2024</div><div class="verify"><a href="https://coursera.org/verify/O36XPAALZ52E">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">Python for Data Science, AI & Development</div><div class="cissuer">IBM / Coursera</div></div><div class="cdate">Feb 2024</div><div class="verify"><a href="https://coursera.org/verify/8XXB7V95VCNF">Verify ↗</a></div></div>
+        <div class="cert-row"><div><div class="cname">Training of Trainers (TOT) – 50 training hours</div><div class="cissuer">Afag Training & Human Development Center, Sudan</div></div><div class="cdate">Jun 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">R & Python Programming Language – 15 hours</div><div class="cissuer">University of Gezira, Faculty of Engineering</div></div><div class="cdate">Jul 2017</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Development of Managerial & Effective Time Management Skills</div><div class="cissuer">UEDC / University of Gezira</div></div><div class="cdate">Aug 2016</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">IEEE Sudan – Arab Science Week 2022 (Presented Wearable Devices & IoT)</div><div class="cissuer">IEEE Sudan</div></div><div class="cdate">Mar 2023</div><div class="verify"></div></div>
+      </div>
+
+      <h3 style="font-size:14px; margin:28px 0 8px; color:var(--teal-deep);">Certificates of Appreciation</h3>
+      <div class="plist" style="border-top:1px solid var(--line);">
+        <div class="cert-row"><div><div class="cname">Disaster Behavioral Health & Crisis Intervention Training</div><div class="cissuer">Department of Health, Abu Dhabi (via Arkan Training & Research)</div></div><div class="cdate">Nov 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Certified Analytics Professional (CAP) Training</div><div class="cissuer">Government of Ajman – Department of Finance</div></div><div class="cdate">Mar 2026</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Scientific Paper Reviewer, NCBME 2025</div><div class="cissuer">National Conference of Biomedical Engineering / Sudanese Biomedical Engineering Society</div></div><div class="cdate">Oct 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">Training: Medical Engineering Management in Crisis & Conflict</div><div class="cissuer">National Conference of Biomedical Engineering, Sudan</div></div><div class="cdate">Oct 2025</div><div class="verify"></div></div>
+        <div class="cert-row"><div><div class="cname">IEEE Women in Engineering (WIE) Day 2026</div><div class="cissuer">IEEE</div></div><div class="cdate">2026</div><div class="verify"></div></div>
+      </div>
+    </section>
+
+    <section id="volunteering">
+      <div class="sec-head"><span class="mk">09</span><h2>Volunteering</h2></div>
+      <div class="card-grid">
+        <div class="info-card"><div class="kicker">2023</div><h3>Keynote / Main Presenter — Youth Conference Papers, Sudan</h3><p>Main presenter on engineering and technology topics at a national youth academic conference.</p></div>
+        <div class="info-card"><div class="kicker">2025</div><h3>Speaker — Journey of a Female Biomedical Engineer</h3><p>Shared professional journey and career insights to inspire women in engineering, She Engineer Initiative.</p></div>
+        <div class="info-card"><div class="kicker">2026</div><h3>Workshop Facilitator — The Biomedical Engineer</h3><p>Led a professional workshop on biomedical engineering practice and career development, Northern Biomedical Engineers Society.</p></div>
+        <div class="info-card"><div class="kicker">Ongoing</div><h3>Podcast Host — University of Gezira Alumni Podcast - Golden Jubilee </h3><p>Host of the University of Gezira Alumni Podcast - Golden Jubilee.</p></div>
+        <div class="info-card"><div class="kicker">2025</div><h3>Scientific Paper & Innovation Reviewer — NCBME 2025</h3><p>Served on the review and judging committee for scientific papers, technical notes, and biomedical innovation competition entries.</p></div>
+        <div class="info-card"><div class="kicker">2022</div><h3>IEEE Arab Science Week Presenter</h3><p>Presented research on Wearable Devices and Internet of Things at Arab Science Week 2022, IEEE Sudan.</p></div>
+        <div class="info-card"><div class="kicker">2024</div><h3>AGYA Mentoring Programme Participant</h3><p>Selected for the Academic Inspiration & Mentoring Programme (AIM) for Sudanese Researchers, co-sponsored by the German Federal Ministry of Education and Research.</p></div>
+        <div class="info-card"><div class="kicker">2020–2021</div><h3>Online Course Creator — Rwaq Platform (رواق)</h3><p>Published open courses on Data Science in Biomedical Engineering and Artificial Organs.</p></div>
+        <div class="info-card"><div class="kicker">2022</div><h3>Course Creator & Author — Qawem Iqra Platform (قوم اقرا)</h3><p>Published Arabic educational content on engineering fields and career guidance for Arabic-speaking learners.</p></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec-head"><span class="mk">10</span><h2>Education</h2></div>
+      <div class="edu-item">
+        <h3>PhD – Biomedical Engineering</h3>
+        <div class="org">University of Gezira, Sudan</div>
+        <div class="yr">2023</div>
+      </div>
+      <div class="edu-item">
+        <h3>MSc – Biomedical Engineering</h3>
+        <div class="org">Sudan University of Science & Technology</div>
+        <div class="yr">2010</div>
+      </div>
+      <div class="edu-item">
+        <h3>BSc – Electronic Engineering (Medical Electronics)</h3>
+        <div class="org">University of Gezira, Sudan</div>
+        <div class="yr">2005</div>
+      </div>
+
+      <h3 style="font-size:14px; margin:24px 0 10px; color:var(--teal-deep);">Languages</h3>
+      <div class="tags">
+        <span class="tag">Arabic — Native</span>
+        <span class="tag">English — Fluent</span>
+      </div>
+    </section>
+
+    <footer>
+      Dr. Suhaila Mohieldin · PhD · Biomedical Engineering · UAE
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
